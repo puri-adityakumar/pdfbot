@@ -9,37 +9,6 @@ This repository contains a FastAPI application integrated with LangChain for que
 - **Document Retrieval**: Retrieve source documents related to the answered questions.
 - **Memory Integration**: Uses conversation history to improve response relevance.
 
-### Architecture Diagram
-```mermaid
-graph TD
-    User[Client User] -->|Upload PDF| FastAPI[FastAPI Server]
-    User -->|Ask Questions| WebSocket[WebSocket Connection]
-    
-    subgraph Backend
-        FastAPI -->|Process PDF| PDFLoader[PyPDFLoader]
-        PDFLoader -->|Split Text| TextSplitter[RecursiveCharacterTextSplitter]
-        TextSplitter -->|Create Embeddings| Embeddings[GoogleGenerativeAIEmbeddings]
-        Embeddings -->|Store Vectors| VectorStore[Chroma Vector Store]
-        
-        WebSocket -->|Query| QAChain[RetrievalQA Chain]
-        QAChain -->|Retrieve Context| VectorStore
-        QAChain -->|Generate Answer| LLM[Gemini LLM]
-        QAChain -->|Track History| Memory[ConversationBufferMemory]
-        
-        PromptTemplate[PromptTemplate] -->|Format Prompt| QAChain
-    end
-    
-    LLM -->|Stream Response| WebSocket
-    WebSocket -->|Display Results| User
-    
-    subgraph Storage
-        Files[File Storage]
-        DB[VectorStore DB]
-    end
-    
-    FastAPI -.->|Store Files| Files
-    VectorStore -.->|Persist| DB
-```
 
 ## Setup Instructions
 
