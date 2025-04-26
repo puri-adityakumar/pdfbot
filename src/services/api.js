@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
 
 // Get list of uploaded documents
 export const getDocuments = async () => {
@@ -34,5 +34,11 @@ export const uploadPDF = async (file) => {
 
 // Create WebSocket connection for chat
 export const createChatWebSocket = () => {
-  return new WebSocket(`ws://localhost:8000/ws/chat`);
+  // Determine the WebSocket protocol based on the API URL protocol
+  const wsProtocol = API_BASE_URL.startsWith('https') ? 'wss://' : 'ws://';
+  
+  // Remove the protocol part from the API URL
+  const wsBaseUrl = API_BASE_URL.replace(/^https?:\/\//, '');
+  
+  return new WebSocket(`${wsProtocol}${wsBaseUrl}/ws/chat`);
 };
