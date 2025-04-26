@@ -2,8 +2,7 @@
 
 PDF Bot is a full-stack application that enables users to upload PDF documents and ask questions about their content in natural language. The application processes the uploaded documents, stores their content in a vector database, and uses advanced natural language processing to provide accurate answers to user queries in real-time.
 
-![PDF Bot](https://img.shields.io/badge/PDF%20Bot-Document%20Q%26A-blue)
-
+# [LIVE](https://pdfhelper-bot.vercel.app/) 🌱
 ## Features
 
 - **PDF Document Upload**: Upload any PDF document for AI analysis
