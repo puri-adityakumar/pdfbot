@@ -85,7 +85,18 @@ const Layout = ({ children, toggleColorMode }) => {
             sx={{ fontSize: "0.75rem" }}
           >
             © {new Date().getFullYear()} PDF Chat Bot - Powered by LangChain &
-            Google Gemini
+            Google Gemini - Created by{" "}
+            <a 
+              href="https://github.com/puri-adityakumar/pdfbot" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              style={{ 
+                color: 'inherit', 
+                textDecoration: 'underline'
+              }}
+            >
+              Aditya Kumar Puri
+            </a>
           </Typography>
         </Container>
       </Box>
