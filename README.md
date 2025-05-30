@@ -1,4 +1,4 @@
-# PDF Bot Frontend
+# PDF Bot Frontend*
 
 A React-based frontend for the PDF Bot application that allows users to upload PDF documents, chat with their contents using AI, and manage document collections.
 
