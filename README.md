@@ -1,4 +1,4 @@
-# PDF Chatbot - FastAPI Application with LangChain Integration
+# PDF Chatbot - FastAPI Application with LangChain Integration*
 
 This repository contains a FastAPI application integrated with LangChain for question answering and document retrieval. The application allows uploading PDF files, extracting text, and querying for answers based on user input.
 
